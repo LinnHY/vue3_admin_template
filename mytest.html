@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      div {
+        height: 500px;
+      }
+      .container {
+        width: 100%;
+        max-width: 1280px;
+        display: inline-flex;
+      }
+      .div-green {
+        width: 220px;
+        background-color: blue;
+      }
+      .div-red {
+        background-color: red;
+        width: calc(100% - 220px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="div-green">div1</div>
+      <div class="div-red">div2</div>
+    </div>
+  </body>
+  <script>
+    function throttle(func, wait) {
+      let lastTime = 0;
+      return function (...args) {
+        let now = Date.now();
+        if (now - lastTime >= wait) {
+          func.apply(this, args);
+          lastTime = now;
+        }
+      };
+    }
+  </script>
+</html>
